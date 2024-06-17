@@ -28,8 +28,8 @@ class PaginationPage {
     }
   }
 
-  getContent() {
-    return cy.get('#content')
+  getInfo() {
+    return cy.get('.city_info, .country_info, .population_info')
   }
 
   getCityImage(city) { 

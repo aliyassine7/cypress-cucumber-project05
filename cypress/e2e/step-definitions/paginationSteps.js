@@ -31,14 +31,17 @@ When(/^the user clicks on the "([^"]*)" button till it becomes disabled$/, (butt
 });
 
 Then(/^the user should see "([^"]*)" City with the info below and an image$/, (city, dataTable) => {
-  const cityInfo = dataTable.hashes();
-  
-  // Validate the city info
-  paginationPage.getContent().should('contain', cityInfo.City);
-  paginationPage.getContent().should('contain', cityInfo.Country);
-  paginationPage.getContent().should('contain', cityInfo.Population);
-  
-  // Validate the image by alt text
-  paginationPage.getCityImage(city).should('be.visible');
-});
+  const cityInfo = dataTable.rowsHash();
 
+  const expectedCity = cityInfo.City;
+  const expectedCountry = cityInfo.Country;
+  const expectedPopulation = cityInfo.Population;
+
+  const expectedDetails = [expectedCity, expectedCountry, expectedPopulation];
+
+  paginationPage.getInfo().each(($el, index) => {
+    cy.wrap($el).should('contain.text', expectedDetails[index]);
+  });
+
+  paginationPage.getCityImage(city).should('be.visible')
+});

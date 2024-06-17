@@ -17,31 +17,28 @@ Feature: Pagination
     Then the user should see the "Previous" button is enabled
     And the user should see the "Next" button is disabled
 
-  # Scenario Outline: Test Case 03 - Validate the Pagination Cities content
-  #   Then the user should see "<City>" City with the info below and an image
-  #     | City: <City> | Country: <Country> | Population: <Population> |
-  #   When the user clicks on the "Next" button
-
-  #   Examples:
-  #     | City        | Country | Population |
-  #     | Tokyo       | Japan   | 37,435,191 |
-  #     | Delhi       | India   | 29,399,141 |
-  #     | Shanghai    | China   | 26,317,104 |
-  #     | Sao Paulo   | Brazil  | 21,846,507 |
-  #     | Mexico City | Mexico  | 21,671,908 |
-
-Scenario: Test Case 03 - Validate the Pagination Cities content
-  Then the user should see "Tokyo" City with the info below and an image
-    | City: Tokyo | Country: Japan | Population: 37,435,191 |
-  When the user clicks on the "Next" button
-  Then the user should see "Delhi" City with the info below and an image
-    | City: Delhi | Country: India | Population: 29,399,141 |
-  When the user clicks on the "Next" button
-  Then the user should see "Shangai" City with the info below and an image
-    | City: Shangai | Country: China | Population: 26,317,104 |
-  When the user clicks on the "Next" button
-  Then the user should see "Sao Paulo" City with the info below and an image
-    | City: Sao Paulo | Country: Brasil | Population: 21,846,507 |
-  When the user clicks on the "Next" button
-  Then the user should see "Mexico City" City with the info below and an image
-    | City: Mexico City | Country: Mexico | Population: 21,671,908 |
+  Scenario: Test Case 03 - Validate the Pagination Cities content
+    Then the user should see "Tokyo" City with the info below and an image
+      | City       | City: Tokyo            |
+      | Country    | Country: Japan         |
+      | Population | Population: 37,435,191 |
+    When the user clicks on the "Next" button
+    Then the user should see "Delhi" City with the info below and an image
+      | City       | City: Delhi            |
+      | Country    | Country: India         |
+      | Population | Population: 29,399,141 |
+    When the user clicks on the "Next" button
+    Then the user should see "Shangai" City with the info below and an image
+      | City       | City: Shangai          |
+      | Country    | Country: China         |
+      | Population | Population: 26,317,104 |
+    When the user clicks on the "Next" button
+    Then the user should see "Sao Paulo" City with the info below and an image
+      | City       | City: Sao Paulo        |
+      | Country    | Country: Brasil        |
+      | Population | Population: 21,846,507 |
+    When the user clicks on the "Next" button
+    Then the user should see "Mexico City" City with the info below and an image
+      | City       | City: Mexico City      |
+      | Country    | Country: Mexico        |
+      | Population | Population: 21,671,908 |
